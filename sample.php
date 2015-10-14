@@ -14,17 +14,17 @@ require_once 'classes/PayfortIntegration.php';
 
 $testMode = TRUE;
 
-$amount                 = 1000;
-$currency               = 'USD';
-$merchant_identifier    = 'merchant_identifier';
-$access_code            = 'access_code';
-$order_description      = 'order1';
-$customer_email         = 'test@email.com';
-$customer_ip            = '93.95.204.106';
-$language               = 'en';
-$command                = 'AUTHORIZATION';
-$return_url             = 'returnPageSample.php';
-$merchant_reference     = uniqid('ref_');
+$amount                 = 1000; // amount of the transaction , please check amount parameter in the integration guide for the format
+$currency               = 'USD'; // currncy of the order
+$merchant_identifier    = 'merchant_identifier'; // you will find this value under security settings of your account
+$access_code            = 'access_code'; // you will find this value under security settings of your account
+$order_description      = ''; // description of the order
+$customer_email         = 'test@email.com'; // email of the customer
+$customer_ip            = 'IP Address'; // IP address of the client 
+$language               = 'en'; // en or ar
+$command                = ''; // one of the values listed in the integration guide 
+$return_url             = 'returnPageSample.php'; // Full URL of the return page , customer will be redirected to this URL after completing the transaction
+$merchant_reference     = uniqid('ref_'); // order reference from the merchant for this transaction
 
 $payfortIntegration = new PayfortIntegration();
 
