@@ -68,7 +68,7 @@ class PayfortIntegration {
     public function getRequestParams()
     {
        $requestParams =   array(
-            'amount'                => $this->amount * 100,
+            'amount'                => $this->amount,
             'currency'              => $this->currency,
             'merchant_identifier'   => $this->merchant_identifier,
             'access_code'           => $this->access_code,
@@ -154,10 +154,10 @@ class PayfortIntegration {
             $signature = hash('sha512', $concatedStr);
         }
         
-        if ($returnSignature == $signature) {
+        if ( strtolower($returnSignature) == strtolower($signature) ) {
             return true;
         } else {
-            return false;
+            return false; 
         }
        
         return $signature;

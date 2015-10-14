@@ -14,7 +14,7 @@ require_once 'classes/PayfortIntegration.php';
 
 $testMode = TRUE;
 
-$amount                 = 1000; // amount of the transaction , please check amount parameter in the integration guide for the format
+$amount                 = 1000; // amount of the transaction , please check amount parameter in the integration guide 
 $currency               = 'USD'; // currncy of the order
 $merchant_identifier    = 'merchant_identifier'; // you will find this value under security settings of your account
 $access_code            = 'access_code'; // you will find this value under security settings of your account
