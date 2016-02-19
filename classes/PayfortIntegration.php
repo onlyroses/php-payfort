@@ -29,11 +29,11 @@ class PayfortIntegration {
      * calculate fort signature
      * 
      * @param array $requestParams order request parameters
-     * @param string $shaRequestPharse as Request encryption Pharse
+     * @param string $shaRequestPhrase as Request encryption Phrase
      * @param string $securityType as security Type (sha256, sha128, sha512)
      * @return strin signature
      */
-    public function calculateFortSignature($shaRequestPharse, $securityType) {
+    public function calculateFortSignature($shaRequestPhrase, $securityType) {
         
         $requestParams = $this->getRequestParams();
 
@@ -46,7 +46,7 @@ class PayfortIntegration {
             }
         }
 
-        $concatedStr = $shaRequestPharse.$concatedStr.$shaRequestPharse;
+        $concatedStr = $shaRequestPhrase.$concatedStr.$shaRequestPhrase;
         
         if($securityType == 'sha256') {
             $signature = hash('sha256', $concatedStr);
@@ -125,11 +125,11 @@ class PayfortIntegration {
     /**
      * calculate Signature after back to merchant and comapre it with request Signature
      * 
-     * @param string $shaResponcePharse
+     * @param string $shaResponsePhrase
      * @param string $securityType
      * @return boolean (true/ false)
      */
-    public function calculateReturnToMerchantSignature($shaResponcePharse, $securityType)
+    public function calculateReturnToMerchantSignature($shaResponsePhrase, $securityType)
     {
         $requestParams      = $this->getReturnRequestParams();
 
@@ -144,7 +144,7 @@ class PayfortIntegration {
             }
         }
 
-        $concatedStr = $shaResponcePharse.$concatedStr.$shaResponcePharse;
+        $concatedStr = $shaResponsePhrase.$concatedStr.$shaResponsePhrase;
         
         if($securityType == 'sha256') {
             $signature = hash('sha256', $concatedStr);
